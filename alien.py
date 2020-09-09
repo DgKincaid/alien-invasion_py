@@ -5,7 +5,7 @@ class Alien(Sprite):
   def __init__(self, ai_game):
     super().__init__()
     self.screen = ai_game.screen
-
+    self.settings = ai_game.settings
     image = pygame.image.load('images/ufo_ship.png')
 
     self.image = pygame.transform.scale(image, (50, 25))
@@ -16,3 +16,6 @@ class Alien(Sprite):
 
     self.x = float(self.rect.x)
 
+  def update(self):
+    self.x += self.settings.alien_speed
+    self.rect.x = self.x
